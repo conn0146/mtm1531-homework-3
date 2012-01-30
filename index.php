@@ -1,4 +1,10 @@
 <?php
+
+error_reporting(-1);
+ini_set('display_errors', 'on');
+
+include 'includes/filter-wrapper.php';
+
 $possible_languages = array(
 	'English'
 	,'French'
@@ -42,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	$email_message = 'Name: ' . $name . "\r\n";
 	$email_message .= 'Email: ' . $email . "\r\n";
-	$email_message .= 'Preferred Language: ' . $preferredlang . "\r\n";
+	$email_message .= 'Preferred Language: ' . $possible_languages[$preferredlang] . "\r\n";
 	$email_message .= 'Notes: ' . $notes . "\r\n";
 	
 	$headers = 'From: Jason <conn0146@algonquinlive.com>' . "\r\n";
